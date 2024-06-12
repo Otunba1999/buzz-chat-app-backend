@@ -1,0 +1,44 @@
+
+spring:
+  application:
+    name: Buzz
+  datasource:
+    url: jdbc:postgresql://localhost:5432/buzz
+    username: postgres
+    password: ladi.com1
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLInnoDBDialect
+    generate-ddl: true
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+  mvc:
+    #    throw-exception-if-no-handler-found: true
+    async:
+      request-timeout: 360000
+server:
+  port: 3000
+  error:
+    path: /user/error
+    whitelabel:
+      enabled: false
+
+logging:
+  level:
+    org:
+      springframework:
+        web.socket: INFO
+    com:
+      otunba:
+        configs: INFO
